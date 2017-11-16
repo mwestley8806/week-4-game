@@ -27,8 +27,8 @@
             </p>
         </div>
 
-        <div class="col-md-4" id="img">
-            <!-- <img class="mickey" id="img" src="assets/images/MickeynoHat.png"> -->
+        <div class="col-md-4" id="hat">
+            <img class="mickey" id="hat" src="assets/images/MickeynoHat.png">
         </div>
         <div class="col-md-4 background2">
             <h4 class="magic">Magic Required: <span id="magicNumber"></span></h4>
@@ -48,89 +48,8 @@
             <img class="yensid" src="assets/images/YenSid.png">
         </div>
 
-        <script type="text/javascript">
+        <script src="assets/javascript/game.js"></script>
 
-        var guessAmount= 82;
-
-        $("#magicNumber").text(guessAmount);
-
-        var counter=0;
-
-        var numberOptions = [6,10,17,21];
-
-        for (var i = 0; i < numberOptions.length; i++) {
-            
-            var crystal = $("<img>");
-
-            crystal.addClass("crystal-image");
-
-            crystal.attr("src", "assets/images/purplecrystal.png");
-
-            crystal.attr("data-crystalvalue", numberOptions[i]);
-
-            $(".first").append(crystal);
-
-            var crystal = $("<img>");
-
-            crystal.addClass("crystal-image");
-
-            crystal.attr("src", "assets/images/greencrystal.png");
-
-            crystal.attr("data-crystalvalue", numberOptions[i]);
-
-            $(".first").append(crystal);
-
-            var crystal = $("<img>");
-
-            crystal.addClass("crystal-image");
-
-            crystal.attr("src", "assets/images/redcrystal.png");
-
-            crystal.attr("data-crystalvalue", numberOptions[i]);
-
-            $(".second").append(crystal);
-
-            var crystal = $("<img>");
-
-            crystal.addClass("crystal-image");
-
-            crystal.attr("src", "assets/images/bluecrystal.png");
-
-            crystal.attr("data-crystalvalue", numberOptions[i]);
-
-            $(".second").append(crystal);
-        }
-
-         var increment = numberOptions[Math.round(Math.random())];
-
-            var wins=0;
-            var losses=0;
-
-        $(".crystal-image").on("click", function() {
-
-            var crystalValue = ($(this).attr("data-crystalvalue"));
-            crystalValue = parseInt(crystalValue);
-
-            counter += crystalValue;
-            //counter += numberOptions[Math.round(Math.random())];
-            $("#magicAccquired").text(counter);
-
-            if (counter === guessAmount) {
-                alert("You Win!");
-                var wins = +1;
-                $("#wins1").text(wins);
-                $("#img").append("src", "assest/images/MickeywithHat.png");
-            }
-
-            else if (counter >= guessAmount) {
-                alert("You Lose!");
-                var losses = +1;  
-                $("#losses1").text(losses);
-                $("#img").attr("src", "assest/images/MickeynoHat.png")
-                .appendTo($("#img"))
-            }
-        });
-        </script>
     </body>
 
 </html>
